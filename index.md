@@ -94,7 +94,7 @@ Because most owners only have a small amount of parcels we will group them into
 
 If we look at the data as a map a very noisy mosaic shows up.
 
-<iframe src="assets/export/by_owners_all_in_one.html"></iframe>
+<iframe src="assets/dropdown_hover.html"></iframe>
 
 #### Denoising
 
