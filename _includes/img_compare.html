@@ -1,5 +1,5 @@
 <div class="question" style="">
     {% if include.image_url %}
-    <iframe src="{{ include.image_url}}" style="height: 1000px;"></iframe>
+    <iframe src="{{ include.image_url | prepend: full_base_url }}" style="height: 1000px;"></iframe>
     {% endif %}
 </div>
