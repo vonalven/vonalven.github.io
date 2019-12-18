@@ -118,6 +118,11 @@ even further by investigationg highly touristic cities across the world.
 
 Let’s begin with the study of every aspect of success individually: for every country available on both the transport and airbnb dataset, let’s find out what aspect of a listing have the most impact on the booking frequency (review_per_month), the grade (review_score) and the positivity of the comments (compound) individually. 
 
+{% include img_compare.html 
+  image_url="assets/dropdown_hover.html"
+%}
+
+<iframe src="assets/dropdown_hover.html"></iframe>
 GRAPH POLAR + HEATMAP AVEC ONGLET POUR COMPOUND, REVIEWS AND BOOKING FREQUENCY
 
 A first interesting information at this point is how cities can be clustered on their parameters relevance in the success of a vacation rental. Indeed, 8 city-clusters appears.
@@ -225,9 +230,6 @@ Because most owners only have a small amount of parcels we will group them into
 
 If we look at the data as a map a very noisy mosaic shows up.
 
-{% include img_compare.html 
-  image_url="assets/dropdown_hover.html"
-%}
 
 
 
