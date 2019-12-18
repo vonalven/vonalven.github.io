@@ -4,27 +4,158 @@
 
 ---
 
-Finding an apartment in Lausanne with a rent that fits a student budget is a
-time-consuming and tedious task. If you have just arrived in Lausanne, you don't
-know where to look. Is it cheaper on the hill or near the university? You don't
-know all the parameters that come into play and while running from one flat
-viewing to another you start to wonder: who owns all this real estate you would
-like to live in?
+From being a simple idea born inside the minds of two men, Brian Chesky and Joe Gebbia, 
+unable to afford their rent to becoming one of the best vacation rental sites, 
+Airbnb has come a long way. As a matter of fact, the “air” in Airbnb came as a result of 
+Brian and Joe renting an air mattress on their living room floor. 
 
-#### Goal
 
-We want to bring some light into the opaque world of real estate. By leveraging
-openly accessible data our goal is to understand **how rent prices are
-influenced by the type of the owner, the geographical situation, or other
-factors**. This article should serve as a head start for people searching
-affordable rents in Lausanne.
+#### A Bit of Background
 
-#### Key insights
+Since its foundation in 2008, the company experienced a continuous growth with a boom 
+after 2012, ending up to a revenue of 2.6 billions US dollars in 2017, 12736 employees 
+in 2019 and an astonishing 2 millions people lodging with Airbnb each night in October 
+2019. Today, Airbnb offers listings in 191 countries and counts about 150 millions users 
+[1]. 
 
-In particular you will be enlightened by the following real estate insights
-and you will understand how these were obtained. Even if Lausanne is not
-New York we needed to think of it in smaller units. Therefore, our results
-divide the city into its neighbourhoods – in french
+Hereabove is a graph depicting the worldwide presence of AirBnb from data obtained through
+ Inside AirBnb.
+
+
+With such astonishing numbers, one can’t help but wonder how to get a piece of the pie. 
+More specifically, how can short term renting be turned into a sucessful business, to the
+ point of being a source of income? If you are interested in the idea of subletting your
+  properties and are considering Airbnb as the plateform to do so, then this data story 
+  is for you! Indeed, with the help of a thorough analysis of AirBnb data, this article 
+  will try to solve the mystery of profitable rentings by determining what makes a 
+  listing sucessful. 
+Thus, answers are seeked for the following underlying questions of our problem:
+•	What do people look for when booking an airbnb: what variables have the largest 
+impact on a listing ?
+•	What can be learned from the "big players" and "international players" of the Airbnb 
+platform ? Are the same parameters important for all cities ?
+
+
+#### Defining Success
+
+Before getting down to business by pointing how to get make your listing reach the top, 
+let’s get everybody on the same page by detailing what it means for a rented property to 
+be successful. Quite naturally, the goal when renting a vacation housing would be to get 
+the highest score accompagnied with good reviews and have custumers all year round. There
+ are other indicators such as having customers come back to your place but for this study 
+ only the three listed previously will be taken into account. 
+Because customers grade a listing on several criteria such as cleanliness or communication
+, the overall grade will be taken into account so that a high average grade reflects good 
+scores on all criteria.
+Also, due to Airbnb’s international presence, reviews are found in many languages. However
+, the majority of the customers write in English. These are the reviews, which positivity 
+is analysed. Rather than with positivity itself, reviews’ compound values are analyzed. 
+A compound value > 0.05 would demonstate positive reviews whereas values < -0.05 amounts 
+for negative reviews. For values inbetween, reviews are thought as neutral.
+ Finally, the booking frequency is estimated with the average number of reviews wrote for 
+ a listing every months. Note that this is only an estimation since not all guests leave 
+ reviews and they might have different length of stay. However it does provide information
+  on the demand for a listing.
+
+Now that we can all agree on a common definition of success it is time to understand what 
+parameters have the most impact on a listing’s success.
+
+insert
+GRAPH DISTRIBUTION DES METRICS
+
+By looking at the distribution of the success metric, some simple observations can be 
+made. First, the average score is left skewed : very few listings have overall scores 
+under 80/100. Then, reviews per months are right-skewed, that is, most listings receive 
+very few reviews every months. Finally, the Gaussian distribution of compound values shows
+ that most comments have compound values close to 0.5. Virtually no comment is negative, 
+ most comments are positive or neutral. These distributions were obtained when inspecting
+  the values of a single city : Amsterdam, which analysis is talked more in depth in the 
+  next section.
+
+
+#### Zooming into one of Europe’s most touristic cities: Amsterdam
+
+To get more insight, the analysis is focused, as a first step, on Airbnb usage in 
+Amsterdam. Setting the focus on Amsterdam yields meaningful results as Amsterdam ranks 
+fifth in the ranking of Europe’s most visited cities, setting the focus on it. Such 
+preliminary analysis is done to confirm some hypothesis that might come to mind 
+spontaneously.  Certainly, anyone who’s ever gone on a touristic trip has developed some 
+preferences in terms of housing. Indeed it can be expected for someone sightseeing 
+Amsterdam to want a rental place near the center for a good price and maybe with some 
+services offered such as breakfast. However the demography of travellers can be very 
+diversed. Based on the age, interest, contry of origin and more, the interest for a 
+listing can be very different from one Airbnb user to another. 
+
+insert SANKEY PLOT 
+
+
+By placing your mouse on every connection between a parameter and the success metric 
+it influences you can get the weight of this particular connexion. These weights reveal 
+how much a parameter has influence over the different aspect of a listing’s success.
+ Because of the considerable amount of parameters that are considered in this research, 
+ the second plot focuses only on the 8 most important ones. As far as the owners of 
+ Airbnbs in Amsterdam as conserned, in order to maximize their chance at success, they 
+ hould focus their energy on:
+-	increasing the number of amenities they offer to the renters as well as their response
+ rate,
+-	optimizer the pricing of their property
+-	renting entire appartement that are closte to public transports station.
+Also, the longest one has been hosting travelers, the more successful the listing.
+
+However, these results were obtained by looking at all the listings in Amsterdam. Let’s 
+not forget you want to get your property to the top. Therefore, it is time to bring our 
+analysis to an internationational level. That’s right, needs might differ with respect 
+to where you decide to rent holiday housings. Indeed, some towns might be more prone to 
+extensive exploration of touristic attractions whereas others might be more prone to 
+enjoying tranquility by the pool or the beach for example. Let’s find out if these results
+ can be generalized in order to give you the best tools to owning a successful listing.
+ 
+ 
+ #### From a single city to a worldwide view
+
+Even though interesting results were drawned in the previous section, it is time to go 
+even further by investigationg highly touristic cities across the world. 
+
+Let’s begin with the study of every aspect of success individually: for every country available on both the transport and airbnb dataset, let’s find out what aspect of a listing have the most impact on the booking frequency (review_per_month), the grade (review_score) and the positivity of the comments (compound) individually. 
+
+GRAPH POLAR + HEATMAP AVEC ONGLET POUR COMPOUND, REVIEWS AND BOOKING FREQUENCY
+
+A first interesting information at this point is how cities can be clustered on their parameters relevance in the success of a vacation rental. Indeed, 8 city-clusters appears.
+
+PLOT POWERPOINT QUI REGROUPE LES CLUSTER
+
+Directly following the first observation is that, as expected, what influences success varies depending on your location. For example, the time elapsed since one has been a host on Airbnb is the second most relevant parameter to getting good grades in cities in the fifth cluster whereas it only is the forth one for cities in the tenth cluster. 
+
+Now that it is known for a fact that the location matters for how to handle your reting property, it is time to understand which parameters it would be in your best interest to improve as best as possible. For that, a multi-target study might come in handy. Indeed, it is time to look at success by considering all its aspects and to come up with the best strategy for you to access the hosts’ elite. 
+
+GRAPH POLAR + HEATMAP DE LA MULTITARGET ANALYSIS
+
+Among all the parameters inspected througout this article, they can finally be topped down to 8 key features with the most effect on the success of a listing. These features are: 
+-	The distance between the housing and the neirest public transportation station
+-	The minimum amount of night allowed for a stay
+-	The host being a superhost
+-	The overall price
+-	The price per person 
+-	The host response rate
+-	How long has the host been renting properties on airbnb
+-	The total amount of properties the host has for rent online
+-	The number of amenities proposed by the host
+
+You might be panicking at this point, thinking you won’t be able to improve all these features. Well, there is no need to be alarmed: if you plan on renting your property in a town presented in this study, you’ll just have to identify the town-cluster to wich it belongs and then you can find an even smaller list of parameters to improve in order to increase your chances of success! 
+For example, if you happen to own a real estate that you would like to rent in a town of the ninth cluster, then you only have to set your focus on the number of amenities you offer, the minimum nights you allow, the proximity with public transportation stations, your response rate and being patient because the experience of the host (time elapsed since the first rental) also has effect on the success of your listing. 
+
+
+
+#### Conclusion and discussion
+
+At the end of this analysis, we truly hope you will get the best results (and income) with your listing. Eventhough the competition is tough, remember that few elements can improve a big deal your chance at success. Also keep in mind that the parameters that most influence your future success will also depend on where your housing will be located. However, tourists’ expectations do meet in particular places regardless of the destination. As expected, most travelers aim for affordable places (price, price_per_person, minimum_nights) close to public transportations (distance_nearest_station) rented by a host they feel they can trust based on their experience (host_since, superhost, high response rate) and that has a lot to offer (number_of_amenities).
+
+
+
+#### reste du truc des autres
+
+
+
 [_quartiers_][quartiers_lausanne].
 
 - The owner with the most parcels in Lausanne is the municipality.
@@ -98,15 +229,7 @@ If we look at the data as a map a very noisy mosaic shows up.
   image_url="assets/dropdown_hover.html"
 %}
 
-#### Denoising
 
-If you just squinted while looking at the map, we have the same intuition. The
-mosaic is too chaotic to say anything. Therefore, we try to smoothen the picture
-–  digitally. For each parcel we drew an imaginary circle through its
-neighbouring parcels and looked at their ownership type. The cell was then
-reassigned to the type which covered the most of the circle's surface. This can
-be seen as a weighted [k-nearest-neighbours] algorithm with variable _k_. (Click
-on the legend of the above map to see the second layer.)
 
 With this cleaner picture, some patterns emerge. The eastern _quartier_
 _Chailly_ is dominantly owned by privates. Big parks, the lakeside and the rail
@@ -145,60 +268,21 @@ removing duplicates and fake offers this gave us 469 offers with prices in
 CHF/m<sup>2</sup>. By combining them with our geographical data from before, we
 can present them in the map below.
 
-#### Extrapolation
 
-These points don't really help if one needs information for a property
-between two points. Therefore, you find the second map that features the median
-rent price for each _quartier_. (Click on the second layer of the map.)
 
-We were still not satisfied by this second map, because it averages out all
-fine-grained information. The  [k-nearest-neighbours] algorithm seemed like the
-perfect match for the problem. (And not _only_ because of its name.) By looking
-at the nearest neighbours of a parcel we predict its rent price. This allows us
-to get a smooth heat-map of rents in Lausanne which is displayed as the third
-layer below:
 
 <iframe src="assets/export/by_rents_all_in_one.html"></iframe>
 
-There seem to be two hot spots for high rents: the city centre and even more
-significantly the two _quartiers_ near the lake and the port _Montriond_ and
-_Ouchy_. For our student readers, the affordable rents are more on the hill, for
-example near the airport.
 
 {% include question.html in_text=true
  text="What makes rents in Lausanne expensive?"
  image_url="assets/img/belair.jpg"
 %}
 
-#### Ownership influence
 
-Having seen the differences in ownership across the city, we ask ourselves
-whether the ownership type also influences the price of accommodation. To give a
-statistically correct answer, we evaluated a simple linear model with
-[linear regression]. The model tries to find significantly different mean rent
-prices depending on the ownership type of a parcel.
-This model however does not give a meaningful result. It seems like our
-hypothesis that rents are different if the property is for example owned by a
-corporation has no factual basis, and that the small differences in the mean
-rents of each ownership type just arise from random noise. After all,
-we only have a small number of offers compared to the number of parcels.
 
-#### Geographical factors
-
-But if the owner doesn't influence the price, what does? Why are prices
-different? You can get an intuition for this by looking at the smoothed rent
-map. Clearly, the parts near the lake are more red. Our next linear regression
-therefore analyses the dependence of the price on the distance to the port of
-Lausanne, [_Ouchy_]. As you can observe in the plot to the left, there is a
-visible correlation. Our model can confirm with a high significance that the
-more you go towards the country-side, the cheaper flats get.
 
 ![Linear regression on the rent prices](assets/export/distance.svg)
-
-There is also a second factor that influences rent prices per square meter. This
-aspect is less obvious: the surface of the flat inversely correlates with the
-price per square meter. From the plot one can see that small flats
-have a very high price per square meter.
 
 
 {% include question.html in_text=true
@@ -206,26 +290,7 @@ have a very high price per square meter.
  image_url="assets/img/Lausanne_img_0585.jpg"
 %}
 
-Even if we did not exactly find what we set out to find, we learned quite a bit
-about rent prices and _quartiers_. Our first hypothesis that rent prices are
-influenced by the owner was rejected. We see two reasons for this: First, we
-only had sparse data about rents. The circa 500 offers we collected only cover a
-small percentage of rental units in Lausanne.
 
-The second and more important reason is the market. By the law of supply and
-demand prices will always balance one another. Put in other terms, no owner will
-offer their property at a higher price than the neighbours because this would be
-an economical disadvantage. Similarly, if all neighbours offer their real estate
-at a high price the owner will do the same. This demonstrates the importance of
-the _quartiers_ or in general the geographical situation that we showed was a
-significant factor for the price.
-
-As students at [EPFL](https://www.epfl.ch/) we know how hard it is to find
-accommodation in Lausanne. We hope that this analysis helped you understand
-where to look for a flat and what parameters determine the prices across the
-city. This projects also shows the potential of open data for providing
-transparency and insight into otherwise opaque systems. We can only encourage to
-do the same for other  things that interest you![^2]
 
 
 [^2]: All images are from [wikimedia commons](https://commons.wikimedia.org/wiki/Category:Lausanne).
