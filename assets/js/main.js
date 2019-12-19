@@ -25,7 +25,7 @@ $(function()  {
     $(".question").each(function(){
       var questionPosition = $(this).offset().top;
 
-      if (questionPosition < scrollPos + windowHeight*0.33) {
+      if (questionPosition < scrollPos + windowHeight*0.2) {
         $(this).addClass("active");
       }
     });

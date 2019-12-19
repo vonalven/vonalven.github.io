@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: "AirBnb: A path to a succesful business"
-description: >- # this means to ignore newlines until "baseurl:"
+description: 
   The platform makes it seem easy to rent your listing. However, you may have to pay 
   attention to a few details if you plan to grow a business out of it. Dive in to discover
   how to strategically make profit with the platfrom.
