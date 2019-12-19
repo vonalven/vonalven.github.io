@@ -3,32 +3,47 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 ---
+<style>
+.centeralign {
+  text-align: justify;
+}
+</style>
 
+<style>
+  p {
+    text-indent: -30pt;
+  }
+</style>
+ 
+<p style="text-align: justify">
 From being a simple idea born inside the minds of two men, Brian Chesky and Joe Gebbia, 
 unable to afford their rent, to becoming one of the best vacation rental sites, 
 AirBnb has come a long way. As a matter of fact, the “air” in AirBnb came as a result of 
 Brian and Joe renting an air mattress on their living room floor. 
-
+</p>
 
 #### A Bit of Background
+<div class="centeralign">
 
-Since its foundation in 2008, the company experienced a continuous growth with a boom 
+<p class="centeralign">Since its foundation in 2008, the company experienced a continuous growth with a boom 
 after 2012, ending up to a revenue of 2.6 billions US dollars in 2017, 12736 employees 
 in 2019 and an astonishing 2 millions people lodging with AirBnb each night in October 
 2019. Today, AirBnb offers listings in 191 countries and counts about 150 millions users 
-[1]. 
+[1].
 
-Hereabove is a graph depicting the worldwide presence of AirBnb from data obtained through
+<p class="centeralign">Here-above is a graph depicting the worldwide presence of AirBnb from data obtained through
  Inside AirBnb.
 
 
-With such astonishing numbers, one can’t help but wonder how to get a piece of the pie. 
+<P>With such astonishing numbers, one can’t help but wonder how to get a piece of the pie. 
 More specifically, how can short term renting be turned into a sucessful business, to the
  point of being a source of income? If you are interested in the idea of subletting your
   properties and are considering AirBnb as the plateform to do so, then this data story 
   is for you! Indeed, with the help of a thorough analysis of AirBnb data, this article 
   will try to solve the mystery of profitable rentings by determining what makes a 
-  listing sucessful. 
+  listing sucessful.
+</div>
+  
 Thus, answers are seeked for the following underlying questions of our problem:
 •	What do people look for when booking an airbnb: what variables have the largest 
 impact on a listing ?
@@ -37,7 +52,7 @@ platform ? Are the same parameters important for all cities ?
 
 
 #### Defining Success
-
+<p style="text-align: justify">
 Before getting down to business by pointing how to get make your listing reach the top, 
 let’s get everybody on the same page by detailing what it means for a rented property to 
 be successful. Quite naturally, the goal when renting a vacation housing would be to get 
@@ -57,9 +72,12 @@ for negative reviews. For values inbetween, reviews are thought as neutral.
  a listing every months. Note that this is only an estimation since not all guests leave 
  reviews and they might have different length of stay. However it does provide information
   on the demand for a listing.
-
+</p>
+\\
+<p style="text-align: justify">
 Now that we can all agree on a common definition of success it is time to understand what 
 parameters have the most impact on a listing’s success.
+</p>
 
 insert
 GRAPH DISTRIBUTION DES METRICS
@@ -321,7 +339,6 @@ can present them in the map below.
  text="What have we learned from it?"
  image_url="assets/img/Lausanne_img_0585.jpg"
 %}
-
 
 
 
