@@ -136,8 +136,11 @@ listing have the most impact on the booking frequency (review_per_month), the gr
 (review_score) and the positivity of the comments (compound) individually. 
 
 {% include img_compare.html 
-  image_url="assets/dropdown_hover.html"
+  image_url="assets/dropdown_sankey.html"
 %}
+
+
+
 
 GRAPH POLAR + HEATMAP AVEC ONGLET POUR COMPOUND, REVIEWS AND BOOKING FREQUENCY
 
@@ -145,6 +148,11 @@ A first interesting information at this point is how cities can be clustered on 
 parameters relevance in the success of a vacation rental. Indeed, 8 city-clusters appears.
 
 PLOT POWERPOINT QUI REGROUPE LES CLUSTER
+
+{% include img_compare.html 
+  image_url="assets/dropdown_metrics.html"
+%}
+
 
 Directly following the first observation is that, as expected, what influences success 
 varies depending on your location. For example, the time elapsed since one has been a 
@@ -183,7 +191,7 @@ offer, the minimum nights you allow, the proximity with public transportation st
 your response rate and being patient because the experience of the host (time elapsed 
 since the first rental) also has effect on the success of your listing. 
 
-
+<iframe src="assets/html_graphs/compound_importances_ranking_similarity_interactive.html"></iframe>
 
 #### Conclusion and discussion
 
@@ -206,35 +214,11 @@ most influence your future success will also depend on where your housing will b
 
 [_quartiers_][quartiers_lausanne].
 
-- The owner with the most parcels in Lausanne is the municipality.
-
-- The _quartiers_  _Montriond_ and _Ouchy_  are clearly more expensive
-  than the rest.
-
-- The city centre is mostly owned by corporations,
-  _Chailly_ is mostly owned by privates.
-
-- There is no direct relation between owner type and prices. The market seems to
-  adjust prices uniformly over the ownership types.
-
-- The price per square meter of a flat is strongly influenced by the distance to the
-  _lac Léman_ and by the surface of the flat. Smaller flats cost more
-  per square meter than large flats.
-
-
-{% include question.html in_text=true
-  text="Who owns your quartier?"
-  image_url="assets/img/3245402894_9a4e7ef640_o.jpg"
-%}
 
 
 Our first [dataset][asit] consists of the geographical, [cadastral] and address
 data behind [map.lausanne.ch](https://map.lausanne.ch). It features the owner of
-each of the almost 8000 plots or parcels (of land) in Lausanne.
-There are about 4000[^1] entities possessing
-real estate and they are as diverse as you would imagine them, ranging from the
-municipality, to private people, to even multinational companies like Crédit
-Suisse, Phillip Morris International or the pension fund of Swatch.
+each of the almost 8000 plot
 
 [^1]:  
     This number does not account for PPE (_prorpiété par étage_). If a house's
@@ -242,13 +226,7 @@ Suisse, Phillip Morris International or the pension fund of Swatch.
     different owners. It just indicates PPE.
 
 
-#### Ownership types
 
-The owner with the most parcels is unsurprisingly the **city of Lausanne**. With
-1265 parcels it owns 12% of all parcels. This is ten times more than the next
-two owners which are the pension funds of the city and of the canton Vaud.
-Because most owners only have a small amount of parcels we will group them into
-7 types:
 
 {: .owner-legend }
  - {: .public } public institutions: _the city, the swiss railways etc._
@@ -274,44 +252,6 @@ Because most owners only have a small amount of parcels we will group them into
 If we look at the data as a map a very noisy mosaic shows up.
 
 
-
-
-With this cleaner picture, some patterns emerge. The eastern _quartier_
-_Chailly_ is dominantly owned by privates. Big parks, the lakeside and the rail
-lines are of course possessed by public institutions and the centre of the city
-has the highest density of corporations.
-
-
-#### Diversity
-
-The fact that the two maps are different shows that there is a lot of diversity
-in some _quartiers_' ownership patterns. In order to see which _quartiers_ are
-the most diversely owned, we computed another map that measures the diversity
-with the [Shannon entropy] of the owners in a circle around each parcel.
-
-<iframe src="assets/export/entropy_owners.html"></iframe>
-
-Unsurprisingly, the large parks, the airport and the lakeside which all belong
-to the city have low  entropy in their ownership patterns. That means there is a
-local monopoly of owners. While this was expected for the city's properties it
-is rather a discovery for the [_Flon_] in the centre of the city. This area is
-red as well because a single corporation (_LO Immeubles S.A._) owns all of the
-properties in the _Flon_!
-
-{% include question.html in_text=true
-  text="How expensive are rents in Lausanne?"
-  image_url="assets/img/Lausanne_by_Night.jpg"
-%}
-
-
-If you visit a real estate portal you see something like
-[this][homegate_example]. You don't get a global view of the area and its
-prices. To overcome this, we collected the listings from the three most
-important swiss platforms ([Anibis](https://www.anibis.ch/),
-[Homegate](https://www.homegate.ch/) and [Tutti](https://www.tutti.ch/)). After
-removing duplicates and fake offers this gave us 469 offers with prices in
-CHF/m<sup>2</sup>. By combining them with our geographical data from before, we
-can present them in the map below.
 
 
 
