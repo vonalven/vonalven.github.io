@@ -14,14 +14,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Who owns Lausanne?
+title: "AirBnb: A path to a succesful business"
 description: >- # this means to ignore newlines until "baseurl:"
-  Finding real estate or just housing in Lausanne is hard. We ask, why? And
-  who owns these expensive properties? Follow us on our journey to discover
-  to real estate situation in different parts of Lausanne.
+  The platform makes it seem easy to rent your listing. However, you may have to pay 
+  attention to a few details if you plan to grow a business out of it. Dive in to discover
+  how to strategically make profit with the platfrom.
 baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://who-owns-lausanne.github.io/"
-github_username:  who-owns-lausanne
+url: "https://vonalven.github.io/"
+github_username:  vonalven
 
 # Build settings
 markdown: kramdown

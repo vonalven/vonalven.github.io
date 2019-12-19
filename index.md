@@ -5,8 +5,8 @@
 ---
 
 From being a simple idea born inside the minds of two men, Brian Chesky and Joe Gebbia, 
-unable to afford their rent to becoming one of the best vacation rental sites, 
-Airbnb has come a long way. As a matter of fact, the “air” in Airbnb came as a result of 
+unable to afford their rent, to becoming one of the best vacation rental sites, 
+AirBnb has come a long way. As a matter of fact, the “air” in AirBnb came as a result of 
 Brian and Joe renting an air mattress on their living room floor. 
 
 
@@ -14,8 +14,8 @@ Brian and Joe renting an air mattress on their living room floor.
 
 Since its foundation in 2008, the company experienced a continuous growth with a boom 
 after 2012, ending up to a revenue of 2.6 billions US dollars in 2017, 12736 employees 
-in 2019 and an astonishing 2 millions people lodging with Airbnb each night in October 
-2019. Today, Airbnb offers listings in 191 countries and counts about 150 millions users 
+in 2019 and an astonishing 2 millions people lodging with AirBnb each night in October 
+2019. Today, AirBnb offers listings in 191 countries and counts about 150 millions users 
 [1]. 
 
 Hereabove is a graph depicting the worldwide presence of AirBnb from data obtained through
@@ -25,7 +25,7 @@ Hereabove is a graph depicting the worldwide presence of AirBnb from data obtain
 With such astonishing numbers, one can’t help but wonder how to get a piece of the pie. 
 More specifically, how can short term renting be turned into a sucessful business, to the
  point of being a source of income? If you are interested in the idea of subletting your
-  properties and are considering Airbnb as the plateform to do so, then this data story 
+  properties and are considering AirBnb as the plateform to do so, then this data story 
   is for you! Indeed, with the help of a thorough analysis of AirBnb data, this article 
   will try to solve the mystery of profitable rentings by determining what makes a 
   listing sucessful. 
@@ -41,15 +41,16 @@ platform ? Are the same parameters important for all cities ?
 Before getting down to business by pointing how to get make your listing reach the top, 
 let’s get everybody on the same page by detailing what it means for a rented property to 
 be successful. Quite naturally, the goal when renting a vacation housing would be to get 
-the highest score accompagnied with good reviews and have custumers all year round. There
- are other indicators such as having customers come back to your place but for this study 
- only the three listed previously will be taken into account. 
-Because customers grade a listing on several criteria such as cleanliness or communication
-, the overall grade will be taken into account so that a high average grade reflects good 
-scores on all criteria.
-Also, due to Airbnb’s international presence, reviews are found in many languages. However
-, the majority of the customers write in English. These are the reviews, which positivity 
-is analysed. Rather than with positivity itself, reviews’ compound values are analyzed. 
+the highest rating accompagnied with good reviews and have custumers all year round. There
+ are other indicators such as having customers come back to your place but for the purpose 
+ of this study only the three factors listed previously will be taken into account. 
+Since customers rate a listing over several criteria such as cleanliness or communication
+, an overall rating that takes all of these aspects into account will account for client
+satisfaction.
+Additionally, due to Airbnb’s international presence, reviews are found in many languages.
+ However, the majority of the customers write in English. These are the reviews, 
+ which positivity is analysed. Rather than with positivity itself, reviews’ compound 
+ values are analyzed. 
 A compound value > 0.05 would demonstate positive reviews whereas values < -0.05 amounts 
 for negative reviews. For values inbetween, reviews are thought as neutral.
  Finally, the booking frequency is estimated with the average number of reviews wrote for 
@@ -116,26 +117,38 @@ enjoying tranquility by the pool or the beach for example. Let’s find out if t
 Even though interesting results were drawned in the previous section, it is time to go 
 even further by investigationg highly touristic cities across the world. 
 
-Let’s begin with the study of every aspect of success individually: for every country available on both the transport and airbnb dataset, let’s find out what aspect of a listing have the most impact on the booking frequency (review_per_month), the grade (review_score) and the positivity of the comments (compound) individually. 
+Let’s begin with the study of every aspect of success individually: for every country 
+available on both the transport and airbnb dataset, let’s find out what aspect of a 
+listing have the most impact on the booking frequency (review_per_month), the grade 
+(review_score) and the positivity of the comments (compound) individually. 
 
 {% include img_compare.html 
   image_url="assets/dropdown_hover.html"
 %}
 
-<iframe src="assets/dropdown_hover.html"></iframe>
 GRAPH POLAR + HEATMAP AVEC ONGLET POUR COMPOUND, REVIEWS AND BOOKING FREQUENCY
 
-A first interesting information at this point is how cities can be clustered on their parameters relevance in the success of a vacation rental. Indeed, 8 city-clusters appears.
+A first interesting information at this point is how cities can be clustered on their 
+parameters relevance in the success of a vacation rental. Indeed, 8 city-clusters appears.
 
 PLOT POWERPOINT QUI REGROUPE LES CLUSTER
 
-Directly following the first observation is that, as expected, what influences success varies depending on your location. For example, the time elapsed since one has been a host on Airbnb is the second most relevant parameter to getting good grades in cities in the fifth cluster whereas it only is the forth one for cities in the tenth cluster. 
+Directly following the first observation is that, as expected, what influences success 
+varies depending on your location. For example, the time elapsed since one has been a 
+host on Airbnb is the second most relevant parameter to getting good grades in cities 
+in the fifth cluster whereas it only is the forth one for cities in the tenth cluster. 
 
-Now that it is known for a fact that the location matters for how to handle your reting property, it is time to understand which parameters it would be in your best interest to improve as best as possible. For that, a multi-target study might come in handy. Indeed, it is time to look at success by considering all its aspects and to come up with the best strategy for you to access the hosts’ elite. 
+Now that it is known for a fact that the location matters for how to handle your reting
+ property, it is time to understand which parameters it would be in your best interest 
+ to improve as best as possible. For that, a multi-target study might come in handy. 
+ Indeed, it is time to look at success by considering all its aspects and to come up 
+ with the best strategy for you to access the hosts’ elite. 
 
 GRAPH POLAR + HEATMAP DE LA MULTITARGET ANALYSIS
 
-Among all the parameters inspected througout this article, they can finally be topped down to 8 key features with the most effect on the success of a listing. These features are: 
+Among all the parameters inspected througout this article, they can finally be topped 
+down to 8 key features with the most effect on the success of a listing. These features 
+are: 
 -	The distance between the housing and the neirest public transportation station
 -	The minimum amount of night allowed for a stay
 -	The host being a superhost
@@ -146,14 +159,31 @@ Among all the parameters inspected througout this article, they can finally be t
 -	The total amount of properties the host has for rent online
 -	The number of amenities proposed by the host
 
-You might be panicking at this point, thinking you won’t be able to improve all these features. Well, there is no need to be alarmed: if you plan on renting your property in a town presented in this study, you’ll just have to identify the town-cluster to wich it belongs and then you can find an even smaller list of parameters to improve in order to increase your chances of success! 
-For example, if you happen to own a real estate that you would like to rent in a town of the ninth cluster, then you only have to set your focus on the number of amenities you offer, the minimum nights you allow, the proximity with public transportation stations, your response rate and being patient because the experience of the host (time elapsed since the first rental) also has effect on the success of your listing. 
+You might be panicking at this point, thinking you won’t be able to improve all these 
+features. Well, there is no need to be alarmed: if you plan on renting your property in 
+a town presented in this study, you’ll just have to identify the town-cluster to wich it 
+belongs and then you can find an even smaller list of parameters to improve in order to 
+increase your chances of success! 
+For example, if you happen to own a real estate that you would like to rent in a town of 
+the ninth cluster, then you only have to set your focus on the number of amenities you 
+offer, the minimum nights you allow, the proximity with public transportation stations, 
+your response rate and being patient because the experience of the host (time elapsed 
+since the first rental) also has effect on the success of your listing. 
 
 
 
 #### Conclusion and discussion
 
-At the end of this analysis, we truly hope you will get the best results (and income) with your listing. Eventhough the competition is tough, remember that few elements can improve a big deal your chance at success. Also keep in mind that the parameters that most influence your future success will also depend on where your housing will be located. However, tourists’ expectations do meet in particular places regardless of the destination. As expected, most travelers aim for affordable places (price, price_per_person, minimum_nights) close to public transportations (distance_nearest_station) rented by a host they feel they can trust based on their experience (host_since, superhost, high response rate) and that has a lot to offer (number_of_amenities).
+At the end of this analysis, we truly hope you will get the best results (and income) 
+with your listing. Eventhough the competition is tough, remember that few elements can 
+improve a big deal your chance at success. Also keep in mind that the parameters that 
+most influence your future success will also depend on where your housing will be located.
+ However, tourists’ expectations do meet in particular places regardless of the 
+ destination. As expected, most travelers aim for affordable places (price, 
+ price_per_person, minimum_nights) close to public transportations 
+ (distance_nearest_station) rented by a host they feel they can trust based on their 
+ experience (host_since, superhost, high response rate) and that has a lot to offer 
+ (number_of_amenities).
 
 
 
