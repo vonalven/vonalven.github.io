@@ -117,11 +117,11 @@ p + p {
   .container { padding-bottom: 4em; }
 
   h1 {
-    font-size: 2.5em;
-    @include media-breakpoint-up(sm) { font-size: 4em; }
-    @include media-breakpoint-up(md) { font-size: 5.5em; }
-    @include media-breakpoint-up(lg) { font-size: 6em; }
-    @include media-breakpoint-up(xl) { font-size: 6.5em; }
+    font-size: 2em;
+    @include media-breakpoint-up(sm) { font-size: 2.5em; }
+    @include media-breakpoint-up(md) { font-size: 3.5em; }
+    @include media-breakpoint-up(lg) { font-size: 4em; }
+    @include media-breakpoint-up(xl) { font-size: 4.5em; }
 
     line-height: 0.9;
     font-weight: bold;
