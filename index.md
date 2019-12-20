@@ -25,10 +25,10 @@ in 2019 and an astonishing 2 millions people lodging with AirBnb each night in O
 
 Here-above is a graph depicting the worldwide presence of AirBnb from data obtained through
 [_Inside Airbnb_][Inside Airbnb]. The bubbles sizes are proportional to the number of listings in each city.
-In total, approximatively 1.5 MIO listings are present in the dataset!
+In total, approximatively 1.5 millions listings are present in the dataset!
 
 
-With such astonishing numbers, one can’t help but wonder how to get a piece of the pie. 
+With such astonishing numbers, one cannot help but wonder how to get a piece of the pie. 
 More specifically, how can short term renting be turned into a sucessful business, to the
 point of being a source of income? If you are interested in the idea of subletting your
 properties and are considering AirBnb as the plateform to do so, then this data story 
@@ -58,8 +58,8 @@ the highest rating accompanied with good reviews and have custumers all year rou
  of this study only the three factors previously mentioned will be taken into account. 
 Since customers rate a listing over several criteria such as cleanliness or communication,
 an overall rating that includes all of these aspects will account for client
-satisfaction. This is the role of the *review_scores_rating* feature.
-Due to AirBnb’s international presence, reviews are found in many languages, with English.
+satisfaction. This is the role of the *review_scores_rating* metric.
+Due to AirBnb’s international presence, reviews are found in many languages, with English
 being the most common one. From the latter, sentiment analysis is carried out to evaluate
 both the overall positivity and overall negativity of the reviews. These two measures are
  summarized in a so-called '[_compound_][compound]' measure that defines the global sentiment of a comment.
@@ -72,7 +72,7 @@ since not all guests leave reviews. In addition, the duration of the stays could
 It can nevertheless be stated that this metric provides information on the demand for a listing.
 
 Now that we can all agree on a common definition of success, we can move along to getting 
-an understanding what parameters have the most impact on a listing’s so-called success.
+an understanding of what parameters have the most impact on a listing’s so-called success.
 To do so, we developed a complete pipeline integrating some Machine Learning algorithms 
 to perform a preliminary exploratory analysis.
 
@@ -83,32 +83,32 @@ to perform a preliminary exploratory analysis.
 %}
 
 
-As a first approach, the analysis concentrated on understanding the parameters that 
+As a first approach, the analysis aimed at understanding the parameters that 
 influence the most the success of an AirBnb listing in Amsterdam. Focusing on 
 Amsterdam only allowed us to strategically build an efficient framework that would later 
-be applied to other cities, as we hypothesise that some parmeters may have location-
-dependant importances. This city was selected as a reference to develop the analysis 
+be applied to other cities, as we hypothesise that some parameters may have location-dependent importances.
+ This city was selected as a reference to develop the analysis 
 workflow as it ranks [_25_][25] in the most visited cities worldwide, and lies in the [_top 10_][top 10] 
 most visited european destinations. The elevated touristic flux, concurrent with 
 the decent amount of AirBnb listings contained in this city's dataset motivated this choice.
 
-Working with this single city, a highly efficient and generalized framework to was constructed,
+Working with this single city, a highly efficient and generalized framework was constructed,
 reducing the computational cost in comparison to building it with the worldwide dataset.
 
-Based on the age, interest, financial means, country of origin and so on, 
+Based on age, interest, financial means, country of origin and so on, 
 the appeal for a given listing may be very different. Though there might be a high level of variability in the data, 
 we still expect to manage to identify certain trends in terms of which features contribute most to which success metric.
 It is most likely for anyone who has ever gone on a touristic trip to develop
 preferences in terms of housing to some extent, whether for the price range, the distance 
 to touristics attractions and transportations or the type of accommodation. While most of this information
 is present in the [_Inside Airbnb_][Inside Airbnb] dataset, it lacks any clear reference to the proximity to public transportation!
-For this reason, we integrate supplementary data with the open-source [_citilines_][citilines] database. 
-As not all the corresponding cities are available in this database, we reduce our initial 
+For this reason, we integrated supplementary data with the open-source [_citilines_][citilines] database. 
+As not all the corresponding cities are available in this database, we reduced our initial 
 dataset to contain only cities for which the public transportations data is available.
 
 Before diving any further into the analysis, we will shortly describe the implemented Machine Learning approaches
 that were used. We selected Random Forest (RF) models because of their high capacity in generating high-performance and 
-computationally efficient models. Normalisation as well as hyperparameter tuning and multiple performance 
+computationally efficient models. Standardisation as well as hyperparameter tuning and multiple performance 
 assessment methods were considered. Machine Learning was also applied for the natural language 
 analysis of comments guests left to listings they stayed in.
 
@@ -145,7 +145,7 @@ greatly impact the success of your listing.
 
 Up to this point, the analysis was focused only on single cities, independently from the 
 results other cities obtain. Therefore, to get further insight and to be able to 
-generalize, we will provide a globalised analysis, trying to identify similarities between 
+generalize, we provide a globalised analysis, trying to identify similarities between 
 different locations.
 
  
@@ -166,10 +166,10 @@ An attentive and extensive research was performed to identify the best algorithm
 was finally selected, having interesting properties such as non-conjointness groups handling (different elements 
 in the compared lists) and the highest weighting of higher ranks. The clustering effect can be
 visualized in the heatmap below. The colorscale indicates the degree of similarity between feature ranking
-for different cities. Clusters can easilybe identified as diagonal light boxes. 
+for different cities. Clusters can easily be identified as diagonal light boxes. 
 This analysis was performed for all of the success metrics as target through the RF model. 
 
-To provide an overall summarized view of the 3 different success metrics, we generalized the RF model
+To provide an overall summarized view of the 3 different success metrics, we generalised the RF model
 to a multi-target prediction. In this case the features that contribute the most to the simultaneous
 combination of all the metrics are identified.
 
@@ -179,8 +179,9 @@ combination of all the metrics are identified.
 
 
 Depending on the selected target, different clusters are formed, defined by a corresponding 
-set of relevant features. This is seen on three different levels: for success defined as the number of reviews
-per month, as the overall score and also as the combination of the number of reviews per months,
+set of relevant features. This phenomenon can be observed on three different levels: for success 
+defined as the number of reviews per month,for success defined as the overall rating 
+and also for a combination of the number of reviews per months,
 the overall score and the sentiment of the comments (i.e. multi-target RF analysis). Indeed, 
 regarding the results obtained for the sentiment of the comments 
 left by the renters, they are quite similar. Clusters than can be defined for compound won’t 
@@ -191,52 +192,27 @@ of city/cluster starting from ten in the bottom left corner.
 In order to get more insight on these clusters of cities, we created the following scatter bubble plots. 
 They are based on the clusters identified in the heatmaps.
 
-Depending on the selected target, different clusters are formed, defined by a corresponding 
-set of relevant features.
-We see....
 
 Now let's get a better look at the clusters. A detailed representation of the conserved most important features across 
 clusters is provided with the following scatter bubble-plots.
 
-<iframe src="assets/dropdown_bubble.html"></iframe>
+{% include img_bubble.html 
+  image_url="assets/dropdown_bubble.html"
+%}
 
-Analyse bubble plot...
+The observations from the heatmaps regarding the compound results are confirmed with the bubble 
+plot. Furthermore, we can see that, for a single aspect of the success definition, the features 
+that come first and second in terms of importance are the same between most of the cluster. 
+What truly split cities into these cluster are the lesser important features. Finally, 
+a really promising result is the fact that, for the multi target analysis, some features 
+are clearly more important than other as they get high ranks for most cities. In particular, 
+the feature distance to the nearest station is of prime importance for six clusters out of seven. 
+The features host since and number of amenities are the second most important. Therefore, we might 
+suggest you to invest your time in finding a place to rent that is close to a public transport 
+station and in offering sufficient (and of good quality) amenities. Finally, we suggest that 
+you stay patient as the longest you have been a host, the more successful will your listings be !
 
-<iframe src="assets/dropdown_cluster.html"></iframe>
 
-HERE: Insert png table of what cities in cluster
-
-Try to draw a few conclusions....
-
------
-
-Reste du texte à Sirine:
-
-Among all the parameters inspected througout this article, they can finally be topped 
-down to 8 key features with the most effect on the success of a listing. These features 
-are: 
--	The distance between the housing and the neirest public transportation station
--	The minimum amount of night allowed for a stay
--	The host being a superhost
--	The overall price
--	The price per person 
--	The host response rate
--	How long has the host been renting properties on airbnb
--	The total amount of properties the host has for rent online
--	The number of amenities proposed by the host
-
-You might be panicking at this point, thinking you won’t be able to improve all these 
-features. Well, there is no need to be alarmed: if you plan on renting your property in 
-a town presented in this study, you’ll just have to identify the town-cluster to wich it 
-belongs and then you can find an even smaller list of parameters to improve in order to 
-increase your chances of success! 
-For example, if you happen to own a real estate that you would like to rent in a town of 
-the ninth cluster, then you only have to set your focus on the number of amenities you 
-offer, the minimum nights you allow, the proximity with public transportation stations, 
-your response rate and being patient because the experience of the host (time elapsed 
-since the first rental) also has effect on the success of your listing. 
-
------
 
 
 {% include question.html in_text=true
@@ -247,16 +223,12 @@ since the first rental) also has effect on the success of your listing.
 
 At the end of this analysis, we truly hope you will get the best results (and income) 
 with your listing. Eventhough the competition is tough, remember that few elements can 
-improve a big deal your chance at success. Also keep in mind that the parameters that 
-most influence your future success will also depend on where your housing will be located.
- However, tourists’ expectations do meet in particular places regardless of the 
- destination. As expected, most travelers aim for affordable places (price, 
- price_per_person, minimum_nights) close to public transportations 
- (distance_nearest_station) rented by a host they feel they can trust based on their 
- experience (host_since, superhost, high response rate) and that has a lot to offer 
- (number_of_amenities).
-
-
+improve a big deal your chance at success. Also keep in mind that the parameters that most
+ influence your future success will also depend on where your housing will be located. 
+ However, tourists’ expectations do meet in particular places regardless of the destination. 
+ As might have been expected, most travelers aim for listings close to public transportations 
+ (distance_nearest_station) rented by a host they feel they can trust based on their experience 
+ (host_since) and that has a lot to offer (number_of_amenities).
 
 
 
@@ -268,7 +240,7 @@ All the images are open sources and retrieved from [_pixabay_][pixabay].
 [air mattress]: https://muchneeded.com/airbnb-statistics/
 [continuous growth]: https://muchneeded.com/airbnb-statistics/
 [Inside Airbnb]: http://insideairbnb.com
-[coumpound]: https://towardsdatascience.com/sentiment-analysis-beyond-words-6ca17a6c1b54
+[compound]: https://towardsdatascience.com/sentiment-analysis-beyond-words-6ca17a6c1b54
 [25]: https://dutchreview.com/cities/amsterdam/amsterdam-is-the-25th-most-visited-city-in-the-world/
 [top 10]: https://www.traveltrivia.com/most-visited-cities-in-europe/
 [citilines]: https://www.citylines.co
