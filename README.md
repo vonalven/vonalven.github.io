@@ -1,5 +1,5 @@
-# [who-owns-lausanne.github.io](https://who-owns-lausanne.github.io)
+# WHAT MAKES AN AIRBNB SUCCESSFUL ?
 
-This repo contains the data story that shares the results for the
-[Applied Data Analysis](https://dlab.epfl.ch/teaching/fall2018/cs401/) project
-[who-owns-lausanne](https://github.com/who-owns-lausanne/who-owns-lausanne).
+The Data Story can be found [here](https://vonalven.github.io).
+
+The GitHub repository of the project can be foun [here](https://github.com/vonalven/airbnb_ada_project).
