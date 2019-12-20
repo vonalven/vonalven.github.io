@@ -124,12 +124,15 @@ to the prediction in the RF model.
 %}
 
 
-From these graphs some conclusions can be drawn:
-- The distance of a listing to transportation (dist_to_station) seems to be a determining
+The Sankey diagrams were obtained by setting a threshold such that only links of importance 
+higher than 5% are displayed, such that only the highest contributions are displayed.
+A few conclusions can be drawn from observing these graphs:
+- The distance of a listing to transportation (dist_nearest_station) seems to be a determining
 factor in most cities.
-- Rate of host response appears to be a more important factor in determining the amount of
- reviews per month for Berlin than for Manchester.
-- ...
+- Some slight differences can be noticed: the rate of host response appears to be a more important 
+factor in determining the amount of reviews per month for Berlin than for Manchester.
+- Overall, similar features, such as number_of_amenities, dist_nearest_station, price, host_since,...
+  seem to appear for all cities, though often contributing with different weights to the success metrics.
 
 So say you are interested in launching an accommodation business on the plateform in the 
 city of your choice, for example Barcelona. You will be able to deduce from the Sankey
@@ -138,12 +141,12 @@ the price you ask, as well as to whether transportation is in close reach. Moreo
 will notice that the quality of your offer is not the only factor to influence the success
 it will have. In fact, guests also look into the the host behind the listing. As a host 
 you should keep in mind that your experience (host_since, host_total_listings_count) will
-greatly impact the success of your listing. (Build a trustworthy clientele ?)
+greatly impact the success of your listing.
 
 Up to this point, the analysis was focused only on single cities, independently from the 
 results other cities obtain. Therefore, to get further insight and to be able to 
-generalize, we will provide a globalised analysis, identifying similarities between 
-different locations may have.
+generalize, we will provide a globalised analysis, trying to identify similarities between 
+different locations.
 
  
 {% include question.html in_text=true
@@ -174,7 +177,22 @@ combination of all the metrics are identified.
   image_url="assets/dropdown_metrics.html"
 %}
 
-Depending on the selected target, different clusters are formed, defined by a corresponding set of relevant features.
+
+Depending on the selected target, different clusters are formed, defined by a corresponding 
+set of relevant features. This is seen on three different levels: for success defined as the number of reviews
+per month, as the overall score and also as the combination of the number of reviews per months,
+the overall score and the sentiment of the comments (i.e. multi-target RF analysis). Indeed, 
+regarding the results obtained for the sentiment of the comments 
+left by the renters, they are quite similar. Clusters than can be defined for compound won’t 
+show diverging feature importance. This means that regardless of the country, people tend 
+to leave equally objective comments.  Clusters of cities can be seen in an increasing values 
+of city/cluster starting from ten in the bottom left corner.
+
+In order to get more insight on these clusters of cities, we created the following scatter bubble plots. 
+They are based on the clusters identified in the heatmaps.
+
+Depending on the selected target, different clusters are formed, defined by a corresponding 
+set of relevant features.
 We see....
 
 Now let's get a better look at the clusters. A detailed representation of the conserved most important features across 
