@@ -42,7 +42,8 @@
         .dropdown:hover .dropbtn {
             background-color: #9bb7d4;
         }
-    </style>
+    <
+    /style>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
@@ -58,25 +59,36 @@
     <div class="dropdown">
         <button class="dropbtn">Target</button>
         <div class="dropdown-content" onChange="jsDropDown(img_to_display, this.value + 'jpg')">
-            <a href="javascript:void(0)" data-img="review_scores_rating_importance_clusters_bubble_plot.html">(1) Rating</a>
-            <a href="javascript:void(0)" data-img="reviews_per_month_importance_clusters_bubble_plot.html">(2) Reviews/month</a>                
-            <a href="javascript:void(0)" data-img="compound_importance_clusters_bubble_plot.html">(3) Compound</a>
-            <a href="javascript:void(0)" data-img="multi_target_importance_clusters_bubble_plot.html">(1-2-3) Multi-target</a>
+            <a href="javascript:void(0)" data-img="review_scores_rating_importance_clusters_bubble_plot.html" data-jpg="aareview_scores_rating_merged_cluster_imgs_Cluster.jpg">(1) Rating</a>
+            <a href="javascript:void(0)" data-img="reviews_per_month_importance_clusters_bubble_plot.html" data-jpg="aareview_scores_rating_merged_cluster_imgs_Cluster.jpg">(2) Reviews/month</a>                
+            <a href="javascript:void(0)" data-img="compound_importance_clusters_bubble_plot.html" data-jpg="aareview_scores_rating_merged_cluster_imgs_Cluster.jpg">(3) Compound</a>
+            <a href="javascript:void(0)" data-img="multi_target_importance_clusters_bubble_plot.html" data-jpg="aareview_scores_rating_merged_cluster_imgs_Cluster.jpg">(1-2-3) Multi-target</a>
         </div>
     </div>
     <iframe src="./html_graphs/review_scores_rating_importance_clusters_bubble_plot.html"
-                width="100%" height="500px" ></iframe>
+                width="100%" height="500px" >
+              
+    </iframe>
+    <img src="./img_cluster/review_scores_rating_merged_cluster_imgs_Cluster.jpg"
+                width="100%" height="500px">
 </div>
 
 
 <script type="text/javascript">
 
     var imgFolderPath = "/assets/html_graphs/";
+    var jpgFolderPath = "/assets/img_cluster/";
 
     $(".dropdown-content a").click(function () {
         var nomeFile = $(this).data("img");
         var el = $(this).parents(".imgChanger").find("iframe");
         loadImg(imgFolderPath + nomeFile, el);
+    });
+    
+    $(".dropdown-content a").click(function () {
+        var nomeFile = $(this).data("jpg");
+        var el = $(this).parents(".imgChanger").find("img");
+        loadImg(jpgFolderPath + nomeFile, el);
     });
 
     function loadImg(nomeFile, el) {

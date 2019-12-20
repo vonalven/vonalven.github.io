@@ -7,80 +7,74 @@
 
 
  
-From being a simple idea born inside the minds of two men, Brian Chesky and Joe Gebbia, 
+From being a simple idea born inside the minds of [_two men_], Brian Chesky and Joe Gebbia, 
 unable to afford their rent, to becoming one of the best vacation rental sites, 
 AirBnb has come a long way. As a matter of fact, the “air” in AirBnb came as a result of 
-Brian and Joe renting an air mattress on their living room floor. 
+Brian and Joe renting an [_air mattress_] on their living room floor. 
 
 
 #### A Bit of Background
 
 
-Since its foundation in 2008, the company experienced a continuous growth with a boom 
+Since its foundation in 2008, the company experienced a [_continuous growth_] with a boom 
 after 2012, ending up to a revenue of 2.6 billions US dollars in 2017, 12736 employees 
 in 2019 and an astonishing 2 millions people lodging with AirBnb each night in October 
-2019. Today, AirBnb offers listings in 191 countries and counts about 150 millions users 
-[1].
+2019. Today, AirBnb offers listings in 191 countries and counts about 150 millions users.
 
 <iframe src="assets/html_graphs/Airbnb_world_map.html"></iframe>
 Here-above is a graph depicting the worldwide presence of AirBnb from data obtained through
- Inside AirBnb.
+[_Inside Airbnb_]. The bubbles sizes are proportional to the number of listings in each city.
+In total, approximatively 1.5 MIO listings are present in the dataset!
 
 
 With such astonishing numbers, one can’t help but wonder how to get a piece of the pie. 
 More specifically, how can short term renting be turned into a sucessful business, to the
- point of being a source of income? If you are interested in the idea of subletting your
-  properties and are considering AirBnb as the plateform to do so, then this data story 
-  is for you! Indeed, with the help of a thorough analysis of AirBnb data, this article 
-  will try to solve the mystery of profitable rentings by determining what makes a 
-  listing sucessful.
+point of being a source of income? If you are interested in the idea of subletting your
+properties and are considering AirBnb as the plateform to do so, then this data story 
+is for you! Indeed, with the help of a thorough analysis of AirBnb data, this article 
+will try to solve the mystery of profitable rentings by determining what makes a 
+listing sucessful.
 
   
-Thus, answers are seeked for the following underlying questions of our problem:
-•	What do people look for when booking an airbnb: what variables have the largest 
-impact on a listing ?
-•	What can be learned from the "big players" and "international players" of the Airbnb 
-platform ? Are the same parameters important for all cities ?
+Thus, we seek to find answers to the following underlying questions of our problem:
+-	What do people look for when booking an AirBnb ?
+-   What variables have the largest impact on a listing's success ?
+-   Are they the same in every city ?
 
 
-#### Defining Success
+
+{% include question.html in_text=true
+ text="Defining Success"
+ image_url="assets/img/Success.jpg"
+%}
+
 
 Before getting down to business by pointing how to get make your listing reach the top, 
 let’s get everybody on the same page by detailing what it means for a rented property to 
 be successful. Quite naturally, the goal when renting a vacation housing would be to get 
 the highest rating accompanied with good reviews and have custumers all year round. There
  are other indicators such as having customers come back to your place but for the purpose 
- of this study only the three factors listed previously will be taken into account. 
-Since customers rate a listing over several criteria such as cleanliness or communication
-, an overall rating that takes all of these aspects into account will account for client
-satisfaction.
-Additionally, due to Airbnb’s international presence, reviews are found in many languages.
- However, the majority of the customers write in English. These are the reviews, 
- which positivity is analysed. Rather than with positivity itself, reviews’ compound 
- values are analyzed. 
-A compound value > 0.05 would demonstate positive reviews whereas values < -0.05 amounts 
-for negative reviews. For values inbetween, reviews are thought as neutral.
- Finally, the booking frequency is estimated with the average number of reviews wrote for 
- a listing every months. Note that this is only an estimation since not all guests leave 
- reviews and they might have different length of stay. However it does provide information
-  on the demand for a listing.
+ of this study only the three factors previously mentioned will be taken into account. 
+Since customers rate a listing over several criteria such as cleanliness or communication,
+an overall rating that includes all of these aspects will account for client
+satisfaction. This is the role of the *review_scores_rating* feature.
+Due to AirBnb’s international presence, reviews are found in many languages, with English.
+being the most common one. From the latter, sentiment analysis is carried out to evaluate
+both the overall positivity and overall negativity of the reviews. These two measures are
+ summarized in a so-called '[_compound_]' measure that defines the global sentiment of a comment.
+A compound value greater than 0.05 indicates positivity whereas values lower than -0.05 
+are related to negativity. For values in-between, reviews are considered as neutral.
+The booking frequency, our third indicator of success, is estimated with the average number 
+of reviews given to a listing every month. This is under the assumption that, in average, there is
+a similar proportion of customers leaving a review of their stay. This is only an estimation 
+since not all guests leave reviews. In addition, the duration of the stays could vary considerably. 
+It can nevertheless be stated that this metric provides information on the demand for a listing.
 
-Now that we can all agree on a common definition of success it is time to understand what 
-parameters have the most impact on a listing’s success.
+Now that we can all agree on a common definition of success, we can move along to getting 
+an understanding what parameters have the most impact on a listing’s so-called success.
+To do so, we developed a complete pipeline integrating some Machine Learning algorithms 
+to perform a preliminary exploratory analysis.
 
-
-insert
-GRAPH DISTRIBUTION DES METRICS
-
-By looking at the distribution of the success metric, some simple observations can be 
-made. First, the average score is left skewed : very few listings have overall scores 
-under 80/100. Then, reviews per months are right-skewed, that is, most listings receive 
-very few reviews every months. Finally, the Gaussian distribution of compound values shows
- that most comments have compound values close to 0.5. Virtually no comment is negative, 
- most comments are positive or neutral. These distributions were obtained when inspecting
-  the values of a single city : Amsterdam. This city was taken as a case study to build 
-  analysis, which was extended to ...30... cities.  The resulting analysis is described in
-  further detail in the following section.
 
 {% include question.html in_text=true
   text="Zooming into a city at a time"
@@ -88,13 +82,23 @@ very few reviews every months. Finally, the Gaussian distribution of compound va
 %}
 
 
-To get more insight, the analysis concentrated, as a first step, on understanding the 
-parameters that influence the most the success of an AirBnb in Amsterdam. Focusing on 
+As a first approach, the analysis concentrated on understanding the parameters that 
+influence the most the success of an AirBnb listing in Amsterdam. Focusing on 
 Amsterdam only allowed us to strategically build an efficient framework that would later 
 be applied to other cities, as we hypothesise that some parmeters may have location-
-dependant importances. Choosing Amsterdam was motivated by the fact that it ranks fifth in
+dependant importances. This city was selected as a reference to develop the analysis 
+workflow as it ranks [_25_] in most visited cities worlwide, and lies in the [_top 10_] 
+most visited european destinations. The elevated touristic flux concurrent with 
+the decent amount of AirBnb listings contained in this city's dataset motivated this choice.
+
+Working with this single city, the construction ofa highly efficient and generalized framework to be applied to all the next sections, reducing the 
+computational cost.
+
+Choosing Amsterdam was motivated by the fact that it ranks fifth in
  Europe’s most visited cities (citer source), such that many visitors potentially make use
-  of the plateform, without the dataset being too large and computationally intensive. 
+  of the plateform, without the dataset being too large and computationally intensive.
+  
+   
 It is most likely for anyone who has ever gone on a touristic trip to develop
 preferences in terms of housing to some extent, whether it be a price range, the distance 
 to attractions and transportation or the type of accommodation. Indeed, it may be expected 
@@ -234,6 +238,8 @@ Now let's get a better look at the clusters...
 
 Analyse bubble plot...
 
+<iframe src="assets/dropdown_cluster.html"></iframe>
+
 HERE: Insert png table of what cities in cluster
 
 Try to draw a few conclusions....
@@ -269,8 +275,11 @@ since the first rental) also has effect on the success of your listing.
 -----
 
 
+{% include question.html in_text=true
+ text="Conclusion and discussion"
+ image_url="assets/img/Discussion.jpg"
+%}
 
-#### Conclusion and discussion
 
 At the end of this analysis, we truly hope you will get the best results (and income) 
 with your listing. Eventhough the competition is tough, remember that few elements can 
@@ -332,8 +341,6 @@ If we look at the data as a map a very noisy mosaic shows up.
 
 
 
-
-<iframe src="assets/export/by_rents_all_in_one.html"></iframe>
 
 
 {% include question.html in_text=true

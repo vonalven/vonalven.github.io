@@ -1,8 +1,9 @@
 
+
+
 <header class="question {% if include.in_text %} in-text {% endif %}">
   {% if include.image_url %}
-    <div
-      class="background"
+    <div class="background"
       style="background-image: url('{{ include.image_url | prepend: full_base_url }}')"
     ></div>
   {% else %}
@@ -22,3 +23,4 @@
     {% endunless %}
   </div>
 </header>
+
