@@ -22,6 +22,7 @@ in 2019 and an astonishing 2 millions people lodging with AirBnb each night in O
 2019. Today, AirBnb offers listings in 191 countries and counts about 150 millions users 
 [1].
 
+<iframe src="assets/html_graphs/Airbnb_world_map.html"></iframe>
 Here-above is a graph depicting the worldwide presence of AirBnb from data obtained through
  Inside AirBnb.
 
@@ -47,7 +48,7 @@ platform ? Are the same parameters important for all cities ?
 Before getting down to business by pointing how to get make your listing reach the top, 
 let’s get everybody on the same page by detailing what it means for a rented property to 
 be successful. Quite naturally, the goal when renting a vacation housing would be to get 
-the highest rating accompagnied with good reviews and have custumers all year round. There
+the highest rating accompanied with good reviews and have custumers all year round. There
  are other indicators such as having customers come back to your place but for the purpose 
  of this study only the three factors listed previously will be taken into account. 
 Since customers rate a listing over several criteria such as cleanliness or communication
@@ -77,29 +78,39 @@ under 80/100. Then, reviews per months are right-skewed, that is, most listings 
 very few reviews every months. Finally, the Gaussian distribution of compound values shows
  that most comments have compound values close to 0.5. Virtually no comment is negative, 
  most comments are positive or neutral. These distributions were obtained when inspecting
-  the values of a single city : Amsterdam, which analysis is talked more in depth in the 
-  next section.
+  the values of a single city : Amsterdam. This city was taken as a case study to build 
+  analysis, which was extended to ...30... cities.  The resulting analysis is described in
+  further detail in the following section.
 
 {% include question.html in_text=true
-  text="Zooming into one of Europe’s most touristic cities: Amsterdam"
+  text="Zooming into a city at a time"
   image_url="assets/img/amsterdam_.jpg"
 %}
 
 
-To get more insight, the analysis is focused, as a first step, on Airbnb usage in 
-Amsterdam. Setting the focus on Amsterdam yields meaningful results as Amsterdam ranks 
-fifth in the ranking of Europe’s most visited cities, setting the focus on it. Such 
-preliminary analysis is done to confirm some hypothesis that might come to mind 
-spontaneously.  Certainly, anyone who’s ever gone on a touristic trip has developed some 
-preferences in terms of housing. Indeed it can be expected for someone sightseeing 
-Amsterdam to want a rental place near the center for a good price and maybe with some 
-services offered such as breakfast. However the demography of travellers can be very 
-diversed. Based on the age, interest, contry of origin and more, the interest for a 
-listing can be very different from one Airbnb user to another. 
+To get more insight, the analysis focused, as a first step, on understanding the 
+parameters that influence the most the success of an AirBnb in Amsterdam. Focusing on 
+Amsterdam allowed us to strategically build an efficient framework that would later be 
+applied to other cities, as we hypothesize that some parmeters may have location-dependant 
+importances. Choosing Amsterdam was motivated by the fact that it ranks fifth in
+ Europe’s most visited cities (citer source), such that many visitors potentially make use
+  of the plateform, without the dataset being too large and computationally intensive. 
+It is most likely for anyone who has ever gone on a touristic trip to developed
+preferences in terms of housing to some extent, whether it be a price range, the distance 
+to attractions and transportation or the type of accomodation. Indeed, it may be expected 
+for someone visiting Amsterdam to want a rental place near the center, for a good price 
+as well as possibly other services, such as an included breakfast. However the demography 
+of travellers can be very diversified. Based on the age, interest, financial means,
+ country of origin and so on, the appeal for a given listing may  be very different. 
 
-insert SANKEY PLOT 
+{% include img_compare.html 
+  image_url="assets/dropdown_sankey.html"
+%}
 
 
+Though there might be a high level of variability in the data, we still manage to 
+identify certain trends in terms of which features contribute most to which metric. In 
+fact, the Sankey diagram allows for these trends to be visualized. 
 By placing your mouse on every connection between a parameter and the success metric 
 it influences you can get the weight of this particular connexion. These weights reveal 
 how much a parameter has influence over the different aspect of a listing’s success.
@@ -113,6 +124,7 @@ how much a parameter has influence over the different aspect of a listing’s su
 -	renting entire appartement that are closte to public transports station.
 Also, the longest one has been hosting travelers, the more successful the listing.
 
+(changer ci-dessous)
 However, these results were obtained by looking at all the listings in Amsterdam. Let’s 
 not forget you want to get your property to the top. Therefore, it is time to bring our 
 analysis to an internationational level. That’s right, needs might differ with respect 
@@ -123,7 +135,7 @@ enjoying tranquility by the pool or the beach for example. Let’s find out if t
  
  
 {% include question.html in_text=true
-  text="From a single city to a worldwide view"
+  text="From single cities to a worldwide view"
   image_url="assets/img/international.jpg"
 %}
 
@@ -136,10 +148,8 @@ listing have the most impact on the booking frequency (review_per_month), the gr
 (review_score) and the positivity of the comments (compound) individually. 
 
 {% include img_compare.html 
-  image_url="assets/dropdown_sankey.html"
+  image_url="assets/dropdown_metrics.html"
 %}
-
-
 
 
 GRAPH POLAR + HEATMAP AVEC ONGLET POUR COMPOUND, REVIEWS AND BOOKING FREQUENCY
@@ -149,9 +159,8 @@ parameters relevance in the success of a vacation rental. Indeed, 8 city-cluster
 
 PLOT POWERPOINT QUI REGROUPE LES CLUSTER
 
-{% include img_compare.html 
-  image_url="assets/dropdown_metrics.html"
-%}
+<iframe src="assets/dropdown_bubble.html"></iframe>
+
 
 
 Directly following the first observation is that, as expected, what influences success 
