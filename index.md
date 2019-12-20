@@ -88,20 +88,20 @@ very few reviews every months. Finally, the Gaussian distribution of compound va
 %}
 
 
-To get more insight, the analysis focused, as a first step, on understanding the 
+To get more insight, the analysis concentrated, as a first step, on understanding the 
 parameters that influence the most the success of an AirBnb in Amsterdam. Focusing on 
-Amsterdam allowed us to strategically build an efficient framework that would later be 
-applied to other cities, as we hypothesize that some parmeters may have location-dependant 
-importances. Choosing Amsterdam was motivated by the fact that it ranks fifth in
+Amsterdam only allowed us to strategically build an efficient framework that would later 
+be applied to other cities, as we hypothesise that some parmeters may have location-
+dependant importances. Choosing Amsterdam was motivated by the fact that it ranks fifth in
  Europe’s most visited cities (citer source), such that many visitors potentially make use
   of the plateform, without the dataset being too large and computationally intensive. 
-It is most likely for anyone who has ever gone on a touristic trip to developed
+It is most likely for anyone who has ever gone on a touristic trip to develop
 preferences in terms of housing to some extent, whether it be a price range, the distance 
-to attractions and transportation or the type of accomodation. Indeed, it may be expected 
+to attractions and transportation or the type of accommodation. Indeed, it may be expected 
 for someone visiting Amsterdam to want a rental place near the center, for a good price 
 as well as possibly other services, such as an included breakfast. However the demography 
 of travellers can be very diversified. Based on the age, interest, financial means,
- country of origin and so on, the appeal for a given listing may  be very different. 
+ country of origin and so on, the appeal for a given listing may be very different. 
 
 {% include img_compare.html 
   image_url="assets/dropdown_sankey.html"
@@ -110,10 +110,56 @@ of travellers can be very diversified. Based on the age, interest, financial mea
 
 Though there might be a high level of variability in the data, we still manage to 
 identify certain trends in terms of which features contribute most to which metric. In 
-fact, the Sankey diagram allows for these trends to be visualized. 
-By placing your mouse on every connection between a parameter and the success metric 
-it influences you can get the weight of this particular connexion. These weights reveal 
-how much a parameter has influence over the different aspect of a listing’s success.
+fact, Sankey diagrams allows for the importance of a given feature for the three success 
+metrics: a listing's rating, the mean sentiment of its reviews and the amount of reviews 
+it gets in a month, to be visualised. A dropdown menu allows for a wide range of cities to
+ be selected and for their results to be compared. The thickness of the connection between
+a given feature and a success metric is proportional to the weight of the feature's 
+contribution to this metric. The importance of features was computed through a Random 
+Forest analysis.
+
+From these graphs we are able to draw a few conclusions:
+
+
+- The distance of a listing to transportation (dist_to_station) seems to be a determining
+factor in most cities.
+
+- Rate of host response appears to be a more important factor in determining the amount of
+ reviews per month for Berlin than for Manchester.
+ 
+- ...
+
+
+So say you are interested in launching an accommodation business on the plateform in the 
+city of your choice, for example Barcelona. You will be able to deduce from the Sankey
+diagrams that you should pay particular attention to the number of amenities you offer,
+the price you ask, as well as to whether transportation is in close reach. Moreover, you 
+will notice that the quality of your offer is not the only factor to influence the success
+it will have. In fact, guests also look into the the host behind the listing. As a host 
+you should keep in mind that your experience (host_since, host_total_listings_count) will
+greatly impact the success of your listing. (Build a trustworthy clientele ?)
+
+INSERT CORRELATION Here
+
+Now that you know what parameters to focus your attention on, it is in your best interest
+ to know beforehand how you can optimize them to get better ratings, better comments and 
+ more demand (more review/month). Select the city of your choice in the correlation plot 
+ above to better visualize the relationship between the most important parameters for this
+city and the succes metrics. To follow through on the previous example, where you were
+hypothetically targeting Barcelona as a market to start hosting, you can now see that ...
+amenities will lead to .... (change in a metric). 
+
+Up to this point, the analysis was focused only on single cities, independently from the 
+results other cities obtain. Therefore, to get further insight and to be able to 
+generalize, we will provide a globalised analysis, identifying similarities between 
+different locations may have.
+
+
+
+Ancien texte peut-etre reutilisable:
+
+-------
+
  Because of the considerable amount of parameters that are considered in this research, 
  the second plot focuses only on the 8 most important ones. As far as the owners of 
  Airbnbs in Amsterdam as conserned, in order to maximize their chance at success, they 
@@ -133,35 +179,10 @@ extensive exploration of touristic attractions whereas others might be more pron
 enjoying tranquility by the pool or the beach for example. Let’s find out if these results
  can be generalized in order to give you the best tools to owning a successful listing.
  
- 
-{% include question.html in_text=true
-  text="From single cities to a worldwide view"
-  image_url="assets/img/international.jpg"
-%}
-
-Even though interesting results were drawned in the previous section, it is time to go 
-even further by investigationg highly touristic cities across the world. 
-
-Let’s begin with the study of every aspect of success individually: for every country 
+ Let’s begin with the study of every aspect of success individually: for every country 
 available on both the transport and airbnb dataset, let’s find out what aspect of a 
 listing have the most impact on the booking frequency (review_per_month), the grade 
 (review_score) and the positivity of the comments (compound) individually. 
-
-{% include img_compare.html 
-  image_url="assets/dropdown_metrics.html"
-%}
-
-
-GRAPH POLAR + HEATMAP AVEC ONGLET POUR COMPOUND, REVIEWS AND BOOKING FREQUENCY
-
-A first interesting information at this point is how cities can be clustered on their 
-parameters relevance in the success of a vacation rental. Indeed, 8 city-clusters appears.
-
-PLOT POWERPOINT QUI REGROUPE LES CLUSTER
-
-<iframe src="assets/dropdown_bubble.html"></iframe>
-
-
 
 Directly following the first observation is that, as expected, what influences success 
 varies depending on your location. For example, the time elapsed since one has been a 
@@ -174,7 +195,52 @@ Now that it is known for a fact that the location matters for how to handle your
  Indeed, it is time to look at success by considering all its aspects and to come up 
  with the best strategy for you to access the hosts’ elite. 
 
-GRAPH POLAR + HEATMAP DE LA MULTITARGET ANALYSIS
+ 
+--------
+ 
+{% include question.html in_text=true
+  text="From single cities to a worldwide view"
+  image_url="assets/img/international.jpg"
+%}
+
+We previously established that for different cities, different factors are determinant of
+a listing's success. It would thus be interesting to see whether the AirBnb platforms of 
+different sets of cities can be grouped according to their similarity in succes-
+determining features. In doing so, we may be able to infer what are the characteristics
+of these groups of cities and how they may relate to why a set of parameters may be of
+importance for this group.  
+
+{% include img_compare.html 
+  image_url="assets/dropdown_metrics.html"
+%}
+
+-----
+
+insert here heat map explanation
+
+-----
+
+From the heatmaps above, clusters of cities showing various degrees of similarity can be 
+identified. Similarities were evaluated over several targets: each of our success metrics 
+and a multi-target approach that finds out the features that contribute most to a 
+combination of all the metrics. Depending on the selected target, different clusters are 
+formed, defined by a corresponding set of relevant features.
+
+We see....
+
+Now let's get a better look at the clusters...
+
+<iframe src="assets/dropdown_bubble.html"></iframe>
+
+Analyse bubble plot...
+
+HERE: Insert png table of what cities in cluster
+
+Try to draw a few conclusions....
+
+-----
+
+Reste du texte à Sirine:
 
 Among all the parameters inspected througout this article, they can finally be topped 
 down to 8 key features with the most effect on the success of a listing. These features 
@@ -200,7 +266,9 @@ offer, the minimum nights you allow, the proximity with public transportation st
 your response rate and being patient because the experience of the host (time elapsed 
 since the first rental) also has effect on the success of your listing. 
 
-<iframe src="assets/html_graphs/compound_importances_ranking_similarity_interactive.html"></iframe>
+-----
+
+
 
 #### Conclusion and discussion
 
