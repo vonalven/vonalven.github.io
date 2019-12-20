@@ -139,7 +139,7 @@ city of your choice, for example Barcelona. You will be able to deduce from the 
 diagrams that you should pay particular attention to the number of amenities you offer,
 the price you ask, as well as to whether transportation is in close reach. Moreover, you 
 will notice that the quality of your offer is not the only factor to influence the success
-it will have. In fact, guests also look into the the host behind the listing. As a host 
+it will have. In fact, guests also look into the host behind the listing. As a host 
 you should keep in mind that your experience (host_since, host_total_listings_count) will
 greatly impact the success of your listing.
 
@@ -162,56 +162,56 @@ of these groups of cities. It would also be interesting to determine which featu
 conserved throughout the different clusters.
 
 To compute the similarity between cities, only the list of the top 5 most important features are considered. 
-An attentive and extensive research was performed to identify the best algorithm and Rank-biased overlap (RBO)
-was finally selected, having interesting properties such as non-conjointness groups handling (different elements 
+Extensive research was performed to identify the best algorithm and Rank-biased overlap (RBO)
+was finally selected, as it has interesting properties such as non-conjointness groups handling (different elements 
 in the compared lists) and the highest weighting of higher ranks. The clustering effect can be
 visualized in the heatmap below. The colorscale indicates the degree of similarity between feature ranking
 for different cities. Clusters can easily be identified as diagonal light boxes. 
-This analysis was performed for all of the success metrics as target through the RF model. 
-
-To provide an overall summarized view of the 3 different success metrics, we generalised the RF model
-to a multi-target prediction. In this case the features that contribute the most to the simultaneous
-combination of all the metrics are identified.
+This analysis was performed for all of the success metrics as target through the RF model,
+as well as for a multi-target component, which consists of a simultaneous
+combination of all the success metrics.
 
 {% include img_compare.html 
   image_url="assets/dropdown_metrics.html"
 %}
 
 
-Depending on the selected target, different clusters are formed, defined by a corresponding 
-set of relevant features. This phenomenon can be observed on three different levels: for success 
-defined as the number of reviews per month,for success defined as the overall rating 
-and also for a combination of the number of reviews per months,
-the overall score and the sentiment of the comments (i.e. multi-target RF analysis). Indeed, 
-regarding the results obtained for the sentiment of the comments 
-left by the renters, they are quite similar. Clusters than can be defined for compound won’t 
-show diverging feature importance. This means that regardless of the country, people tend 
-to leave equally objective comments.  Clusters of cities can be seen in an increasing values 
-of city/cluster starting from ten in the bottom left corner.
-
-In order to get more insight on these clusters of cities, we created the following scatter bubble plots. 
-They are based on the clusters identified in the heatmaps.
+Depending on the selected target, a clustering effect can be visualised. Clustering is 
+defined by a shared set of relevant features. This phenomenon can be observed for three out
+of the four targets: the number of reviews per month, the overall rating 
+and also for the combination of success metrics (i.e. multi-target). The fourth target, that
+is, the sentiment of the reviews, shows homogenous levels of similarity throughout cities. 
+Clusters can still be extracted from these levels of similarity, but it should be noted that
+there will be little to no difference between clusters for this metric. This peculiarity could 
+be interpreted as being due to the fact that guests tend to base their reviews on similar aspects, 
+regardless of the country of the accommodation.
 
 
-Now let's get a better look at the clusters. A detailed representation of the conserved most important features across 
-clusters is provided with the following scatter bubble-plots.
+In order to get further insight on these clusters of cities, we created bubble scatter plots (see below),
+which show the features that define a cluster of cities and their ranking of importance in the 
+cluster.
+
 
 {% include img_bubble.html 
   image_url="assets/dropdown_bubble.html"
 %}
 
-The observations from the heatmaps regarding the compound results are confirmed with the bubble 
-plot. Furthermore, we can see that, for a single aspect of the success definition, the features 
-that come first and second in terms of importance are the same between most of the cluster. 
-What truly split cities into these cluster are the lesser important features. Finally, 
-a really promising result is the fact that, for the multi target analysis, some features 
-are clearly more important than other as they get high ranks for most cities. In particular, 
-the feature distance to the nearest station is of prime importance for six clusters out of seven. 
-The features host since and number of amenities are the second most important. Therefore, we might 
-suggest you to invest your time in finding a place to rent that is close to a public transport 
-station and in offering sufficient (and of good quality) amenities. Finally, we suggest that 
-you stay patient as the longest you have been a host, the more successful will your listings be !
+These bubble scatter plots confirm the previous observations made on the heatmaps, as features 
+are ranked in the similar manner for most cluster. Moreover, 
+we observe that for a single metric, the two top ranked features are quite similar between 
+the clusters, meaning that the features discriminating the clusters are rather bottom ranked 
+features. Concerning the multi-target analysis, the feature ‘dist nearest station’ is of prime 
+importance for six clusters out of seven! The other two features that stand out are ‘host_since’ 
+and ‘number of amenities’. Therefore, for you as a host, a good suggestion would be to invest your time in finding 
+a place to rent that is close to a public transport stations and that offers sufficient (and of 
+good quality) amenities. Finally, we suggest you to stay patient, as the longest you have been 
+a host, the more successful your listings will be!
 
+However, we cannot identify characteristics specific to each cluster because we would probably 
+additional information that our current dataset does not provide us, distance to touristic attractions 
+(center, parks, beach,...). If these aspects could be included, we would most likely be able 
+infer the common characteristics that describe the cities that form a given cluster. For example:
+summer destinations, cities with many indoor/outdoor activities, ...
 
 
 
@@ -222,14 +222,13 @@ you stay patient as the longest you have been a host, the more successful will y
 
 
 At the end of this analysis, we truly hope you will get the best results (and income) 
-with your listing. Eventhough the competition is tough, remember that few elements can 
-improve a big deal your chance at success. Also keep in mind that the parameters that most
+with your listing. Even though the competition is tough, remember that few elements can 
+improve tremendously your chances of success. Also keep in mind that the parameters that most
  influence your future success will also depend on where your housing will be located. 
- However, tourists’ expectations do meet in particular places regardless of the destination. 
- As might have been expected, most travelers aim for listings close to public transportations 
- (distance_nearest_station) rented by a host they feel they can trust based on their experience 
- (host_since) and that has a lot to offer (number_of_amenities).
-
+ However, tourists’ expectations are conserved regardless of the destination. As might 
+ have been expected, most travelers aim for listings close to public transportations 
+ (distance_nearest_station) rented by a host they feel they can trust based on their 
+ experience (host_since) and that has a lot to offer (number_of_amenities).
 
 
 
